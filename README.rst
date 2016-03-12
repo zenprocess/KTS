@@ -47,7 +47,7 @@ Load the dashboards: ::
 
 Open the dashboards in Kibana
 
- - Open your Kibana web interface
+ - Open your Kibana web interface (ip.ip.ip.ip:5601), select default index
  - Right upper corner, Load -> Choose the desired dashboard
  - Load the desired template(s)
 
