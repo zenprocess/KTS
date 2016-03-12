@@ -5,7 +5,7 @@ set -x
 cd $(dirname $0)
 
 if [ -z "$1" ]; then
-    ELASTICSEARCH=http://elasticsearch:9200
+    ELASTICSEARCH=http://127.0.0.1:9200
 else
     ELASTICSEARCH=$1
 fi
