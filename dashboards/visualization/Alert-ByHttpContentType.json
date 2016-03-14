@@ -5,6 +5,6 @@
   "description": "",
   "version": 1,
   "kibanaSavedObjectMeta": {
-    "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"http.http_method:* AND event_type: alert\",\"analyze_wildcard\":true}},\"filter\":[]}"
+    "searchSourceJSON": "{\"index\":\"logstash-alert-*\",\"query\":{\"query_string\":{\"query\":\"http.http_method:* AND event_type: alert\",\"analyze_wildcard\":true}},\"filter\":[]}"
   }
 }
