@@ -33,15 +33,15 @@ do
 done
 
 
-#for file in $DIR/search/*.json
-#do
-#    name=`basename $file .json`
-#    echo "Loading search $name:"
-#    $CURL -XPUT $ELASTICSEARCH/.kibana/search/$name \
-#        -d @$file || exit 1
-#    echo
-#done
-#
+for file in $DIR/search/*.json
+do
+    name=`basename $file .json`
+    echo "Loading search $name:"
+    $CURL -XPUT $ELASTICSEARCH/.kibana/search/$name \
+        -d @$file || exit 1
+    echo
+done
+
 for file in $DIR/visualization/*.json
 do
     name=`basename $file .json`
