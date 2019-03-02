@@ -1,28 +1,40 @@
 ===============================
-Kibana 4 Templates for Suricata
+Kibana 6 Templates for Suricata
 ===============================
 
-Templates/Dashboards for Kibana 4 to use with Suricata IDPS and the ELK stack
+Templates/Dashboards for Kibana 6 to use with Suricata IDPS threat hunting and the ELK 6 stack
 
-This repository provides 11 templates for the Kibana 4.4 and Elasticsearch 2.x
-for use with Suricata IDS/IPS - Intrusion Detection and Prevention System.
+This repository provides 21 templates for the Kibana 6.x and Elasticsearch 6.x
+for use with Suricata IDS/IPS/ - Intrusion Detection, Intrusion Prevention and Network Security Monitoring system
 
-These dashboards are for use with Suricata and ELK - Elasticsearch, Logstash, 
-Kibana and comprise of more than 140 visualizations and 11 searches.
+These dashboards are for use with Suricata 4.1+ and enabled Rust build, Elasticsearch, Logstash, 
+Kibana 6 and comprise of more than 200 visualizations and 15 predefined searches.
 
 The dashboards are:
 
- - ALL  
- - ALERTS 
- - DNS  
- - FILE Transactions  
- - FLOW  
- - HTTP  
- - SMTP
- - SSH  
- - TLS
- - VLAN
- - STATS
+ - SN-ALERTS
+ - SN-ALL
+ - SN-DHCP
+ - SN-DNS
+ - SN-DNP3
+ - SN-FILE-Transactions
+ - SN-FLOW
+ - SN-HTTP
+ - SN-IDS
+ - SN-IKEv2
+ - SN-KRB5
+ - SN-NFS
+ - SN-OVERVIEW
+ - SN-SMB
+ - SN-SMTP
+ - SN-SSH
+ - SN-STATS
+ - SN-TLS
+ - SN-VLAN
+ - SN-TFTP
+ - SN-TrafficID
+ 
+
 
 How to use
 ==========
@@ -30,26 +42,22 @@ How to use
 ::
 
      apt-get install git-core
-     git clone https://github.com/StamusNetworks/KTS.git
-     cd KTS
+     git clone https://github.com/StamusNetworks/KTS6.git
+     cd KTS6
      
-Kibana 4.4.x needs to be patched in order to load the templates.
-If you have installed Kibana in ``/opt/kibana`` for example: ::
-
- patch -p1 -d /opt/kibana/  < full/path/to/KTS/patches/kibana-integer.patch
- patch -p1 -d /opt/kibana/  < full/path/to//KTS/patches/timelion-integer.patch
-
-**NOTE:**  The loading of the dashboards will ***delete and replace*** any previously exiting templates/visualizations. !!!
-
 Load the dashboards: ::
 
  ./load.sh
 
-Open the dashboards in Kibana
+ 
+You would need to select ``logstash-*`` as a default index once you open any dashboard for the first time after initial load/import.  
 
- - Open your Kibana web interface (ip.ip.ip.ip:5601), select default index
- - Right upper corner, Load -> Choose the desired dashboard
- - Load the desired template(s)
+A similar to this logstash template could be used - https://github.com/StamusNetworks/SELKS/blob/SELKS5/staging/etc/logstash/conf.d/logstash.conf
+
+For optimal results an example of elasticsearch template has been included under ``es-template\elasticsearch6-template.json`` that is used in SELKS 5.
+
+**NOTE:**  
+This will delete any custom dashboards you already have in place. 
 
 **NOTE:**  
 In order to use the full HTTP logging dashboard template you need to set up Suricata as
